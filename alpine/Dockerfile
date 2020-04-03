@@ -1,6 +1,6 @@
 FROM alpine:latest
 
-LABEL auth="zhanghe"
+LABEL author="zhanghe"
 LABEL maintainer="x_hezhang@126.com"
 
 RUN sed -i 's/dl-cdn.alpinelinux.org/mirrors.aliyun.com/g' /etc/apk/repositories && \
