@@ -1,7 +1,8 @@
-version: '3'
+version: '3.7'
 services:
   yapi-web:
-    build: .
+    build:
+      context: .
     image: zhh1115/yapi:latest
     container_name: yapi-web
     ports:
@@ -10,7 +11,7 @@ services:
       - YAPI_ADMIN_ACCOUNT=admin@docker.yapi
       - YAPI_CLOSE_REGISTER=false
       - YAPI_VERSION_NOTIFY=true
-      - YAPI_DB_SERVERNAME=yapi-mongo
+      - YAPI_DB_SERVER_NAME=yapi-mongo
       - YAPI_DB_DATABASE=yapi
       - YAPI_DB_PORT=27017
     depends_on:

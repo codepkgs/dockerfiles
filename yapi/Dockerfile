@@ -21,12 +21,8 @@ WORKDIR /yapi/vendors
 
 COPY files/entrypoint.sh /entrypoint.sh
 COPY files/config.json /yapi/config.json
-COPY files/init-mongo.py /init-mongo.py
-COPY files/check-mongo-init.py /check-mongo-init.py
 
-RUN chmod +x /entrypoint.sh && \
-    chmod +x /init-mongo.py && \
-    chmod +x /check-mongo-init.py
+RUN chmod +x /entrypoint.sh
 
 EXPOSE 3000
 
