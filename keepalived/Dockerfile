@@ -16,7 +16,9 @@ RUN apk add --no-cache gcc ipset ipset-dev iptables iptables-dev libnfnetlink li
     ./build_setup && \
     ./configure --prefix=/usr/local/keepalived --disable-dynamic-linking --enable-bfd && \
     make && \
-    make install && \
-    rm -rf keepalived-${KEEPALIVED_VERSION} v${KEEPALIVED_VERSION}.tar.gz
+    make install
+
+RUN rm -rf keepalived-${KEEPALIVED_VERSION} v${KEEPALIVED_VERSION}.tar.gz
 
 ENTRYPOINT ["/usr/local/keepalived/sbin/keepalived","--dont-fork","--log-console", "-f","/usr/local/keepalived/etc/keepalived.conf"]
+
