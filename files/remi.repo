@@ -1,0 +1,5 @@
+[remi]
+name=Remi's RPM repository for Enterprise Linux 7 - $basearch
+baseurl=https://mirrors.aliyun.com/remi/enterprise/7/remi/$basearch/
+enabled=1
+gpgcheck=0
