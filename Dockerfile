@@ -1,10 +1,10 @@
-FROM python:3.8-alpine
+FROM nginx:1.18
 
 LABEL AUTHOR="zhanghe"
 LABEL EMAIL="x_hezhang@126.com"
 
-RUN sed -i 's/dl-cdn.alpinelinux.org/mirrors.aliyun.com/g' /etc/apk/repositories && \
-    apk add --no-cache tzdata && cp /usr/share/zoneinfo/Asia/Shanghai /etc/localtime && \
-    echo "Asia/Shanghai" > /etc/timezone
+RUN groupadd -g 1000 www && \
+    useradd -u 1000 -g 1000 www
 
-COPY pip.conf /root/.pip/
+COPY files/nginx.conf /etc/nginx/nginx.conf
+COPY files/default.conf /etc/nginx/conf.d/default.conf
