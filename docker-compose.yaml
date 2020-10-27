@@ -1,0 +1,35 @@
+version: '3.7'
+services:
+  yapi-web:
+    build:
+      context: .
+    image: zhh1115/yapi:latest
+    container_name: yapi-web
+    ports:
+      - 3000:3000
+    environment:
+      - YAPI_ADMIN_ACCOUNT=admin@docker.yapi
+      - YAPI_CLOSE_REGISTER=false
+      - YAPI_VERSION_NOTIFY=true
+      - YAPI_DB_SERVER_NAME=yapi-mongo
+      - YAPI_DB_DATABASE=yapi
+      - YAPI_DB_PORT=27017
+    depends_on:
+      - yapi-mongo
+    networks:
+      - yapi
+    restart: unless-stopped
+
+  yapi-mongo:
+    image: mongo:latest
+    container_name: yapi-mongo
+    volumes:
+      - ./data/db:/data/db
+    networks:
+      - yapi
+    expose:
+      - 27017
+    restart: unless-stopped
+
+networks:
+  yapi:

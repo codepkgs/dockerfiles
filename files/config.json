@@ -1,0 +1,14 @@
+{
+  "port": "3000",
+  "closeRegister": PH_YAPI_CLOSE_REGISTER,
+  "adminAccount": "PH_YAPI_ADMIN_ACCOUNT",
+  "versionNotify": PH_YAPI_VERSION_NOTIFY,
+  "db": {
+    "servername": "PH_YAPI_DB_SERVER_NAME",
+    "DATABASE": "PH_YAPI_DB_DATABASE",
+    "port": PH_YAPI_DB_PORT
+  },
+  "mail": {
+    "enable": false
+  }
+}
