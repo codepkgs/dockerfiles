@@ -1,4 +1,4 @@
-FROM alpine:latest
+FROM alpine:3.12
 
 LABEL AUTHOR="zhanghe"
 LABEL EMAIL="x_hezhang@126.com"
