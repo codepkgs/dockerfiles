@@ -1,8 +1,16 @@
-FROM alpine:3.12
+FROM zhh1115/alpine:3.12
 
-LABEL AUTHOR="zhanghe"
-LABEL EMAIL="x_hezhang@126.com"
+COPY pip.conf /etc/pip.conf
 
-RUN sed -i 's/dl-cdn.alpinelinux.org/mirrors.aliyun.com/g' /etc/apk/repositories && \
-    apk add --no-cache tzdata && cp /usr/share/zoneinfo/Asia/Shanghai /etc/localtime && \
-    echo "Asia/Shanghai" > /etc/timezone
+RUN apk add --no-cache gcc musl-dev libffi-dev \
+    bind-tools curl jq openssh-client openssl \
+    python3 python3-dev py3-pip \
+    mariadb mariadb-client mariadb-dev \
+    redis
+
+RUN pip3 install mycli httpie \
+    ipython requests \
+    dingdingrobot wechatrobot
+
+RUN rm -rf /root/.cache/pip
+
