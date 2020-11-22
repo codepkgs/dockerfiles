@@ -3,10 +3,9 @@ FROM zhh1115/alpine:3.12
 COPY pip.conf /etc/pip.conf
 
 RUN apk add --no-cache gcc musl-dev libffi-dev \
-    bind-tools curl jq openssh-client openssl \
+    bind-tools curl jq openssh-client openssl git \
     python3 python3-dev py3-pip \
-    mariadb mariadb-client mariadb-dev \
-    redis
+    redis mariadb mariadb-client mariadb-dev
 
 RUN pip3 install mycli httpie \
     ipython requests \
