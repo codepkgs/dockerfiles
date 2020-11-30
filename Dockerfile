@@ -13,3 +13,5 @@ RUN pip3 install mycli httpie \
 
 RUN rm -rf /root/.cache/pip
 
+RUN curl -LO "https://storage.googleapis.com/kubernetes-release/release/$(curl -s https://storage.googleapis.com/kubernetes-release/release/stable.txt)/bin/linux/amd64/kubectl" -o /usr/bin/kubectl && \
+    chmod +x /usr/bin/kubectl
