@@ -8,4 +8,6 @@ RUN curl -LO "https://storage.googleapis.com/kubernetes-release/release/$(curl -
 
 COPY entrypoint.sh /entrypoint.sh
 
+RUN chmod +x /entrypoint.sh
+
 ENTRYPOINT ["/entrypoint.sh"]
