@@ -8,4 +8,4 @@ RUN curl -LO "https://storage.googleapis.com/kubernetes-release/release/$(curl -
 
 COPY entrypoint.sh /entrypoint.sh
 
-ENTRYPOINT /entrypoint.sh
+ENTRYPOINT ["/entrypoint.sh"]
