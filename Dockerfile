@@ -1,10 +1,9 @@
-FROM python:3.6-alpine
+FROM zhh1115/python36-alpine:latest
 
-LABEL AUTHOR="zhanghe"
-LABEL EMAIL="x_hezhang@126.com"
+RUN pip install requests
 
-RUN sed -i 's/dl-cdn.alpinelinux.org/mirrors.aliyun.com/g' /etc/apk/repositories && \
-    apk add --no-cache tzdata && cp /usr/share/zoneinfo/Asia/Shanghai /etc/localtime && \
-    echo "Asia/Shanghai" > /etc/timezone
+COPY entrypoint.py /entrypoint.py
 
-COPY pip.conf /etc/pip.conf
+RUN chmod +x /entrypoint.py
+
+ENTRYPOINT ["python3", "/entrypoint.py"]
