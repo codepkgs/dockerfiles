@@ -8,8 +8,7 @@ RUN apk add --no-cache gcc musl-dev libffi-dev \
     redis mariadb mariadb-client mariadb-dev
 
 RUN pip3 install mycli httpie \
-    ipython requests \
-    dingdingrobot wechatrobot
+    ipython requests
 
 RUN rm -rf /root/.cache/pip
 
