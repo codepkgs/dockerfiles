@@ -1,6 +1,6 @@
 FROM python:3.8-alpine
 
-LABEL AUTHOR="zhanghe"
+LABEL AUTHOR="zhangdaxian"
 LABEL EMAIL="x_hezhang@126.com"
 
 RUN sed -i 's/dl-cdn.alpinelinux.org/mirrors.aliyun.com/g' /etc/apk/repositories && \
