@@ -1,7 +1,4 @@
-FROM python:3.9-alpine
-
-LABEL AUTHOR="zhangdaxian"
-LABEL EMAIL="x_hezhang@126.com"
+FROM python:3.10-alpine
 
 RUN sed -i 's/dl-cdn.alpinelinux.org/mirrors.aliyun.com/g' /etc/apk/repositories && \
     apk add --no-cache tzdata g++ libffi-dev openssl-dev && \
