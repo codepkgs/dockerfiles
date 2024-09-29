@@ -3,12 +3,13 @@ FROM zhh1115/alpine:3.12
 COPY pip.conf /etc/pip.conf
 
 RUN apk add --no-cache gcc musl-dev libffi-dev \
-    bind-tools curl jq openssh-client openssl git \
+    bind-tools curl jq openssh-client openssl git rust \
     python3 python3-dev py3-pip \
-    redis mariadb mariadb-client mariadb-dev
+    redis mariadb mariadb-client mariadb-dev postgresql-client
 
-RUN pip3 install mycli httpie \
-    ipython requests
+RUN pip3 install -U pip cryptography==3.2.1 requests==2.31 urllib3
+
+RUN pip3 install mycli pgcli httpie ipython
 
 RUN rm -rf /root/.cache/pip
 
