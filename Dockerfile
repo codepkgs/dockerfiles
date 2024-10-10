@@ -4,7 +4,7 @@ COPY pip.conf /etc/pip.conf
 
 RUN apk add --no-cache gcc musl-dev libffi-dev \
     bind-tools curl jq openssh-client openssl git rust \
-    python3 python3-dev py3-pip \
+    python3 python3-dev py3-pip openldap-clients \
     redis mariadb mariadb-client mariadb-dev postgresql-client
 
 RUN pip3 install -U pip cryptography==3.2.1 requests==2.31 urllib3
